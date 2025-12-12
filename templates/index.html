@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LizzBot - Your AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="avatar">
+                    <img src="{{ url_for('static', filename='bot-icon.png') }}" alt="LizzBot Avatar" 
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\fas fa-robot\></i>'">
+                </div>
+                <div class="header-info">
+                    <h1>LizzBot</h1>
+                    <p class="status">Online • Your AI Assistant</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" title="Clear chat">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <div class="chat-container" id="chatContainer">
+            <!-- Welcome message -->
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <img src="{{ url_for('static', filename='bot-icon.jpg') }}" alt="Bot Avatar" 
+                         onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\fas fa-robot\></i>'">
+                </div>
+                <div class="message-content">
+                    <div class="message-text">
+                        <p>Hello! I'm LizzBot, your personal AI assistant. How can I help you today?</p>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+            
+            <!-- Messages will be added here dynamically -->
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    placeholder="Type your message here..."
+                    autocomplete="off"
+                >
+                <button id="sendButton" class="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <p class="hint">Press Enter to send • Shift+Enter for new line</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
